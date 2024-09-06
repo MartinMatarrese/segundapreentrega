@@ -1,0 +1,10 @@
+.cart{
+    display: flex;
+    flex-direction: row;
+}
+.img-cart{
+    width: 50px;
+}
+.p-cart{
+    color: black;
+}

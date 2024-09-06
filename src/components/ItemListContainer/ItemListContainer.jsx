@@ -1,44 +1,27 @@
-import { useState, useEffect } from "react";
-import {getProductos, getProductosCategoria} from "../../Lista";
-import ItemList from "../ItemList/ItemList";
+import { useState, useEffect } from "react"
+import { getProductos, getProductosCategoria } from "../../Lista";
+import { ItemList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
-
-function ItemListContainer ({greeting}){
+export const ItemListContainer = ({bienvenida}) => {
     
     const [productos, setProductos] = useState([]);
-
-    const [error, setError] = useState(null);
     
-    const {categoryid} = useParams()
+    const {categoryId} = useParams()
     
-    useEffect(() => {
-        
-        const asyncFunc = categoryid ? getProductosCategoria : getProductos
-        
-        asyncFunc(categoryid)
-          
-        .then(response => {
-            setProductos(response)
-          })
-        .catch(() => {
-           setError("Producto no encontrado")
-        })
-    }, [categoryid])
-    if (error) {
-        return (
-            <p>{error}</p>
-        )
-    }
-    
+        useEffect(() => {
+        const asyncFunc = categoryId ? getProductosCategoria : getProductos;
+        asyncFunc(categoryId)
+            .then(response => {
+                setProductos(response)
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }, [categoryId]);
     return (
         <div>
-            <h1>{greeting}</h1>
-            {productos.length > 0 ? (
-                <ItemList productos={productos}/>
-            ):(
-                <p>No hay productos disponibles</p>
-            )}
+            <h2>{bienvenida}</h2>
+            <ItemList productos={productos}/>
         </div>
-    );
+    )
 }
-export default ItemListContainer;
