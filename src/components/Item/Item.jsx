@@ -3,7 +3,7 @@ import "./Item.css";
 
 export const Item = ({id, title, image, price, stock}) => {
     return (
-        <div className="item"> 
+            <div className="item"> 
             <article>
             <header>
                 <h2 className="item-header">{title}</h2>

@@ -13,3 +13,17 @@ h2{
     color: white;
     text-align: center;
 }
+.error{
+    display: flex;
+    justify-content: center;
+}
+.error-texto{
+    display: flex;
+    justify-content: center;
+}
+.error-volver{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+}

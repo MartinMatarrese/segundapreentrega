@@ -1,22 +1,25 @@
 
 import { ItemCount } from "../ItemCount/ItemCount"
+import "./ItemDetail.css";
 
 export const ItemDetail = ({title, image, category, price, stock}) => {
     return (
-        <article>
+            <div className="itemdetail">
+             <article>
             <header>
-                <h2 style={{color: "black"}}>{title}</h2>
+                <h2 className="itemdetail-header">{title}</h2>
             </header>
             <picture>
-                <img src={image} alt={title} />
+                <img className="itemdetail-img" src={image} alt={title} />
             </picture>
             <section>
-                <p>Categoria: {category}</p>
-                <p>Precio: ${price}</p>
+                <p className="itemdetail-datos">Categoria: {category}</p>
+                <p className="itemdetail-datos">Precio: ${price}</p>
             </section>
             <footer>
                 <ItemCount iniciar={1} stock={stock} onAdd={(cantidad) => console.log("cantidad agregada", cantidad)}/>   
             </footer>
         </article>
+        </div>
     )
 }
