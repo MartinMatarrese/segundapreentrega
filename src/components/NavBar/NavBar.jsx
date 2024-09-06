@@ -1,14 +1,17 @@
-import { Link, NavLink } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
+import CartWidget from "../CartWidget/CartWidget";
 
 function NavBar (){
     return (
         <nav>
             <Link to="/">INICIO</Link>
             <div>
-                <NavLink to={"/category/camisetas"}>CAMISETAS</NavLink>
-                <NavLink to={"/category/camperas"}>CAMPERAS</NavLink>
-                <NavLink to={"/category/botines"}>BOTINES/</NavLink>
-                <NavLink to={"/category/shorts"}>SHORTS</NavLink>
+                <Link to="/category/camisetas">CAMISETAS</Link>
+                <Link to="/category/camperas">CAMPERAS</Link>
+                <Link to="/category/botines">BOTINES/</Link>
+                <Link to="/category/shorts">SHORTS</Link>
+                <CartWidget/>
             </div>
         </nav>    
     );

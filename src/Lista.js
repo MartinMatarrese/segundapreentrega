@@ -115,7 +115,7 @@ export const getProductosCategoria = (listaCategoria) => {
     return (
         new Promise((resolve) => {
             setTimeout(() => {
-                resolve(lista.find(prod => prod.category ===listaCategoria))
+                resolve(lista.filter(prod => prod.category ===listaCategoria))
             })
         })
     )

@@ -14,13 +14,13 @@ import {useState} from "react";
     return (
         <div>
             <div>
-            <button onClick={decrementar}>Agregar</button>
+            <button onClick={incrementar}>Agregar</button>
             <p>{cantidad}</p>
-            <button onClick={incrementar}>Quitar</button>
+            <button onClick={decrementar}>Quitar</button>
             </div>
             <div>
                 <div>
-                    <button onClick={() => onAdd(cantidad)} disabled={!stock}>Agregar al carrito</button>                    
+                    <button onClick={() => onAdd(cantidad)} disabled={stock < 0}>Agregar al carrito</button>                    
                 </div> 
             </div>
         </div>

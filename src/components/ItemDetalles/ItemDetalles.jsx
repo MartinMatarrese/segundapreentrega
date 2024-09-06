@@ -1,5 +1,11 @@
+import { useState } from "react";
 import Contador from "../Contador/Contador";
-function Detalles (id, title, image, category, price, stock) {
+function Detalles ({id, title, image, category, price, stock}) {
+    const [cantidadAgregada, setCantidadAgregada] = useState(0);
+
+    const handleAdd = (cantidad) => {
+        setCantidadAgregada(cantidad); 
+    };
 
     return (
         <article>
@@ -16,7 +22,8 @@ function Detalles (id, title, image, category, price, stock) {
                 <p>Stock: {stock}</p>
             </section>
             <footer>
-                <Contador iniciar={1} stock={10} onAdd={(cantidad) => ("cantidad agregada: ", cantidad) } />
+            <Contador iniciar={1} stock={10} onAdd={handleAdd} />
+                {cantidadAgregada > 0 && <p>Cantidad agregada: {cantidadAgregada}</p>}
             </footer>
         </article>
     );

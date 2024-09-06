@@ -3,19 +3,19 @@ import { getProductosId } from "../../Lista";
 import ItemDetalles from "../ItemDetalles/ItemDetalles"
 import { useParams } from "react-router-dom";
 
-function DetallesConteiner (){
+function ItemDetallesContainer (){
 
     const [producto, setProducto] = useState(null);
     const [error, setError] = useState(null);
     
-    const [itemId] = useParams();
+    const {itemId} = useParams();
 
     useEffect(() =>{
         getProductosId(itemId)
         .then(response => {
             setProducto(response)
         })
-        .catch(error =>{
+        .catch(() =>{
             setError("Producto no encontrado")
         })
     }, [itemId])
@@ -29,4 +29,4 @@ function DetallesConteiner (){
         </div>
     )
 }
-export default DetallesConteiner;
+export default ItemDetallesContainer;

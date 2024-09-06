@@ -17,11 +17,11 @@ function ItemListContainer ({greeting}){
         
         asyncFunc(categoryid)
           
-        .then(respmse => {
-            setProductos(respmse)
+        .then(response => {
+            setProductos(response)
           })
-        .catch(error => {
-           setError(error, "Producto no encontrado")
+        .catch(() => {
+           setError("Producto no encontrado")
         })
     }, [categoryid])
     if (error) {
@@ -36,7 +36,7 @@ function ItemListContainer ({greeting}){
             {productos.length > 0 ? (
                 <ItemList productos={productos}/>
             ):(
-                <ItemList/>
+                <p>No hay productos disponibles</p>
             )}
         </div>
     );

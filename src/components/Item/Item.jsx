@@ -12,7 +12,7 @@ function Item ({id, title, image, price, stock}) {
             <p>stock disponible {stock}</p>
             <section>
                 <footer>
-                    <Link to={`item/${id}`}>Ver detalle</Link>
+                    <Link to={`/item/${id}`}>Ver detalle</Link>
                 </footer>
             </section>
         </article>
